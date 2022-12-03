@@ -7,19 +7,14 @@
 
 /* WRITE YOUR ANSWER HERE */
 function checkArray(randomArr) {
+    let result = 0;
 
     for (let i = 0; i < randomArr.length; i++) {
-
-        let result = 0;
-
         if (randomArr[i] > 5) {
-
             result += randomArr[i];
         }
         return result
-
     }
-
 }
 
 
@@ -27,6 +22,25 @@ function checkArray(randomArr) {
  In your eCommerce you have an array of objects called shoppingCart. Each one of these objects has a price, a name, an id and the quantity to be shipped.
  Create a function called "shoppingCartTotal" which calculates the total due to the shop.
 */
+
+let shoppingCart = [
+    {
+        name: 'Pants',
+        price: 50,
+        id: 123,
+        quantity: 4,
+
+    },
+    {
+        name: 'Shoes',
+        price: 30,
+        id: 1234,
+        quantity: 3,
+    }
+]
+
+
+
 
 /* WRITE YOUR ANSWER HERE */
 function shoppingCartTotal(shoppingCart) {
@@ -47,7 +61,7 @@ function shoppingCartTotal(shoppingCart) {
 */
 
 /* WRITE YOUR ANSWER HERE */
-function addToShoppingCart(shoppingCart, newItem) {
+function addToShoppingCart(newItem) {
 
     shoppingCart.push(newItem);
     return shoppingCart.length;
@@ -120,7 +134,16 @@ function loopUntil(x) {
 /* WRITE YOUR ANSWER HERE */
 
 function average(params) {
+    let counter = 0;
+    let sum = 0;
 
+    for (let i = 0; i < params.length; i++) {
+        if (typeof (params[i]) === 'number') {
+            sum += params[i];
+            counter++
+        }
+    }
+    return sum / counter
 }
 
 /* EXTRA 8
@@ -129,6 +152,21 @@ function average(params) {
 
 /* WRITE YOUR ANSWER HERE */
 
+function longest(strArr) {
+
+    let longestWord = strArr[0];
+
+    for (let i = 0; i < strArr.length; i++) {
+
+        if (longestWord.length < strArr[0].length) {
+            longestWord = strArr[0];
+        }
+    }
+
+    return longestWord
+
+}
+
 /* EXTRA 9
  Write a function to create a very simple anti spam filter for your mailbox. The function takes a string emailContent, and returns a boolean.
  The function should return true if the emailContent string does not contain the words SPAM or SCAM.
@@ -136,11 +174,23 @@ function average(params) {
 
 /* WRITE YOUR ANSWER HERE */
 
+function emailFilter(emailContent) {
+
+    let result = !emailContent.includes("SPAM") && !emailContent.includes("SCAM");
+    return result;
+}
+
 /* EXTRA 10
  Write a function that receives a date as a parameter and calculates the number of days passed since the given date.
 */
 
 /* WRITE YOUR ANSWER HERE */
+
+function daysPassed(dateParam) {
+
+    let currentDate = new Date();
+
+}
 
 /* EXTRA 11
  Write a function called "matrixGenerator" which receives two integers, x and y, as parameters.
@@ -151,6 +201,24 @@ function average(params) {
 */
 
 /* WRITE YOUR ANSWER HERE */
+function matrixGenerator(x, y) {
+    let outerArray = [];
+    let innerArray = [];
+
+    for (let j = 0; j < y; j++) {
+        for (let i = 0; i < x; i++) {
+            innerArray.push(j + '' + i)
+        }
+        outerArray.push(innerArray)
+        innerArray = []
+    }
+
+    return outerArray;
+}
+
+console.log(matrixGenerator(3, 2));
+
+
 
 /* WHEN YOU ARE FINISHED
  Commit and push the code to your personal GitHub repository; then post the link of your commit on the Homework section of today's Eduflow.

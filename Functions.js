@@ -152,7 +152,7 @@ function giveMeRandom(n) {
     randomNumberArr = [];
 
     for (let i = 0; i < n; i++) {
-        randomNumberArr.push(Math.floor(Math.random() * 100))
+        randomNumberArr.push(Math.floor(Math.random() * 11))
 
     }
     return randomNumberArr;

@@ -1,15 +1,26 @@
-function loopUntil(x) {
+function matrixGenerator(x, y) {
+    let outerArray = [];
+    let innerArray = [];
 
-    let myArray = [0, 0, 0];
-
-    for (let i = 2; myArray[i - 2] <= x && myArray[i - 1] <= x && myArray[i] <= x; i++) {
-        myArray.push(Math.floor(Math.random() * 9))
-
+    for (let j = 0; j < y; j++) {
+        for (let i = 0; i < x; i++) {
+            innerArray.push(j + '' + i)
+        }
+        outerArray.push(innerArray)
+        innerArray = []
     }
-    console.log(myArray)
 
+    return outerArray;
 }
 
+console.log(matrixGenerator(3, 2));
 
 
-loopUntil(4)
+
+
+
+/*  [
+    ["00","01","02"]
+    ["10","11","12"]
+]
+  */
